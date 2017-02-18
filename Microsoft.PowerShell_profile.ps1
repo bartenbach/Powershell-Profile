@@ -19,6 +19,7 @@ New-PSDrive -Name Startup   -PSProvider FileSystem -Root "C:\Users\alureon\AppDa
 New-PSDrive -Name vim       -PSProvider FileSystem -Root "C:\Program Files (x86)\Vim" >> $null
 
 # Aliases
+New-Alias -Name less           -Value more
 New-Alias -Name npp            -Value 'C:\Program Files (x86)\Notepad++\notepad++.exe' >> $null
 New-Alias -Name scrot          -Value 'snippingtool'
 New-Alias -Name gradle         -Value 'C:\Users\alureon\Downloads\gradle-3.0-bin\gradle-3.0\bin\gradle.bat'
@@ -59,6 +60,10 @@ function touch {
   } else {
     New-Item -ItemType file $file
   }
+}
+
+function grep {
+  $input | out-string -stream | select-string $args[0] | %{$_.Line.Split(":")}
 }
 
 # cd - (like linux)
