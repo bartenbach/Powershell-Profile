@@ -43,10 +43,14 @@ set history=20
 set errorfile=$HOME\.vim\error.log
 set encoding=utf-8
 set formatoptions=qt  " remove obnoxious auto-insert comment 'feature'
+set shell=powershell
 syntax on
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
+if (has("termguicolors"))
+  set termguicolors
+endif
 behave mswin
 
 set diffexpr=MyDiff()
