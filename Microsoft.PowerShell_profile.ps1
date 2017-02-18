@@ -1,5 +1,11 @@
 # Microsoft.PowerShell_profile.ps1
 # Blake Bartenbach
+# vim: ft=ps1
+
+# Variables pertaining to cd-
+[System.Collections.Stack]$GLOBAL:dirstack = @()
+$GLOBAL:oldPath = $null
+$GLOBAL:addToStack = $true
 
 # Modules
 Import-Module PSColor
@@ -23,6 +29,15 @@ $host.PrivateData.ErrorBackgroundColor = $host.UI.RawUI.BackgroundColor
 
 # Prompt
 function Prompt {
+  # cd -
+  $GLOBAL:currentPath = (Get-Location).Path
+  if (($currentPath -ne $oldPath) -and $GLOBAL:addToStack) {
+    $GLOBAL:dirstack.Push($oldPath)
+    $GLOBAL:oldPath = $currentPath 
+  }
+  $GLOBAL:addToStack = $true
+  
+  # prompt format
   Write-Host "[" -ForegroundColor "Green" -NoNewLine
   Write-Host $env:username -ForegroundColor "Green" -NoNewLine
   Write-Host "@" -ForegroundColor "Green" -NoNewLine
@@ -46,3 +61,9 @@ function touch {
   }
 }
 
+# cd - (like linux)
+function cd- {
+  $lastPath = $GLOBAL:dirstack.Pop()
+  $GLOBAL:addToStack = $false
+  cd $lastPath
+}
