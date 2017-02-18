@@ -42,6 +42,7 @@ set updatetime=300000
 set history=20
 set errorfile=$HOME\.vim\error.log
 set encoding=utf-8
+set formatoptions=qt  " remove obnoxious auto-insert comment 'feature'
 syntax on
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
