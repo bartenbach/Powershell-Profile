@@ -62,6 +62,7 @@ function touch {
   }
 }
 
+# This is amazing.  It's really like grep.
 function grep {
   $input | out-string -stream | select-string $args[0] | %{$_.Line.Split(":")}
 }
