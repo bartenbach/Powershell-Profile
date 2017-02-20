@@ -11,17 +11,19 @@ $GLOBAL:addToStack = $true
 Import-Module PSColor
 
 # PSDrives
-New-PSDrive -Name code      -PSProvider FileSystem -Root $HOME\Documents\code >> $null
-#New-PSDrive -Name idea      -PSProvider FileSystem -Root $HOME\IdeaProjects >> $null
-New-PSDrive -Name Startup   -PSProvider FileSystem -Root "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" >> $null
+New-PSDrive -Name Code      -PSProvider FileSystem -Root C:\Users\alureon\Documents\code >> $null
+New-PSDrive -Name plugins   -PSProvider FileSystem -Root C:\Users\alureon\minecraft\plugins >> $null
+New-PSDrive -Name minecraft -PSProvider FileSystem -Root C:\Users\alureon\minecraft >> $null
+New-PSDrive -Name idea      -PSProvider FileSystem -Root C:\Users\alureon\IdeaProjects >> $null
+New-PSDrive -Name Startup   -PSProvider FileSystem -Root "C:\Users\alureon\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" >> $null
 New-PSDrive -Name vim       -PSProvider FileSystem -Root "C:\Program Files (x86)\Vim" >> $null
 
 # Aliases
 New-Alias -Name less           -Value more
 New-Alias -Name npp            -Value 'C:\Program Files (x86)\Notepad++\notepad++.exe' >> $null
 New-Alias -Name scrot          -Value 'snippingtool'
-New-Alias -Name gradle         -Value '$HOME\Downloads\gradle-3.0-bin\gradle-3.0\bin\gradle.bat'
-New-Alias -Name pc-information -Value '$HOME\Documents\code\PC-Information\Get-PC-Information.ps1'
+New-Alias -Name gradle         -Value 'C:\Users\alureon\Downloads\gradle-3.0-bin\gradle-3.0\bin\gradle.bat'
+New-Alias -Name pc-information -Value 'C:\Users\alureon\Documents\code\PC-Information\Get-PC-Information.ps1'
 
 # Set error background color to current background color
 $host.PrivateData.ErrorBackgroundColor = $host.UI.RawUI.BackgroundColor
