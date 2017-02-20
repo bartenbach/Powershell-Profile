@@ -48,9 +48,6 @@ syntax on
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
-if (has("termguicolors"))
-  set termguicolors
-endif
 behave mswin
 
 set diffexpr=MyDiff()
