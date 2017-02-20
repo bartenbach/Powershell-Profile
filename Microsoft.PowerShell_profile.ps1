@@ -12,7 +12,7 @@ Import-Module PSColor
 
 # PSDrives
 New-PSDrive -Name code      -PSProvider FileSystem -Root $HOME\Documents\code >> $null
-New-PSDrive -Name idea      -PSProvider FileSystem -Root $HOME\IdeaProjects >> $null
+#New-PSDrive -Name idea      -PSProvider FileSystem -Root $HOME\IdeaProjects >> $null
 New-PSDrive -Name Startup   -PSProvider FileSystem -Root "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" >> $null
 New-PSDrive -Name vim       -PSProvider FileSystem -Root "C:\Program Files (x86)\Vim" >> $null
 
