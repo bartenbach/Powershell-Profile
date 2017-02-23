@@ -2,12 +2,12 @@
 # Blake Bartenbach
 # vim: ft=ps1
 
-# Variables pertaining to cd-
+# Variables pertaining to the cd- function
 [System.Collections.Stack]$GLOBAL:dirstack = @()
 $GLOBAL:oldPath = $null
 $GLOBAL:addToStack = $true
 
-# Modules
+# Modules - this makes LS pretty
 Import-Module PSColor
 
 # PSDrives
@@ -27,7 +27,7 @@ New-Alias -Name pc-information -Value '$HOME\Documents\code\PC-Information\Get-P
 # Set error background color to current background color
 $host.PrivateData.ErrorBackgroundColor = $host.UI.RawUI.BackgroundColor
 
-# Prompt
+# The prompt
 function Prompt {
   # cd -
   $GLOBAL:currentPath = (Get-Location).Path
@@ -48,7 +48,7 @@ function Prompt {
   return ' '
 }
 
-# Touch
+# Touch, like linux
 function touch {
   $file = $args[0]
   if ($file -eq $null) {
